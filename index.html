@@ -404,7 +404,7 @@
             padding-bottom: 14px;
         }
 
-        /* ДРЕСС-КОД — палитра 3+3, аккуратные отступы */
+        /* ДРЕСС-КОД — все цвета на одной строке (горизонтальный скролл при необходимости) */
         .dresscode-intro {
             font-family: 'Cormorant Garamond', serif;
             font-weight: 300;
@@ -418,20 +418,22 @@
             margin-right: auto;
         }
         
-        /* контейнер для двух строк по 3 элемента */
-        .palette-wrapper {
-            max-width: 380px;
+        /* контейнер для всех цветов в одну строку с прокруткой при необходимости */
+        .palette-scroll {
+            width: 100%;
+            overflow-x: auto;
+            overflow-y: hidden;
+            -webkit-overflow-scrolling: touch;
             margin: 24px auto 32px auto;
+            padding-bottom: 12px;
         }
-        .palette-row {
+        .palette-row-single {
             display: flex;
             justify-content: center;
-            gap: 24px;
-            margin-bottom: 28px;
+            gap: 28px;
             flex-wrap: nowrap;
-        }
-        .palette-row:last-child {
-            margin-bottom: 0;
+            min-width: min-content;
+            padding: 0 8px;
         }
         .color-dot {
             display: flex;
@@ -443,7 +445,7 @@
             font-weight: 400;
             color: #2d4c3e;
             letter-spacing: 0.5px;
-            width: 90px;
+            flex-shrink: 0;
         }
         .dot-circle {
             width: 58px;
@@ -455,15 +457,6 @@
         }
         .dot-circle:hover {
             transform: scale(1.05);
-        }
-        .dot-label {
-            text-transform: uppercase;
-            font-size: 11px;
-            letter-spacing: 1px;
-            opacity: 0.8;
-            text-align: center;
-            line-height: 1.35;
-            font-weight: 400;
         }
 
         .tabs-nav { display: flex; justify-content: center; gap: 12px; margin-bottom: 20px; }
@@ -586,10 +579,9 @@
         }
 
         @media (max-width: 480px) {
-            .palette-row { gap: 12px; }
-            .color-dot { width: 70px; }
-            .dot-circle { width: 48px; height: 48px; }
-            .dot-label { font-size: 9px; letter-spacing: 0.5px; }
+            .palette-row-single { gap: 16px; }
+            .color-dot { width: auto; }
+            .dot-circle { width: 52px; height: 52px; }
         }
         @media (max-width: 420px) {
             section { padding: 48px 20px; }
@@ -734,7 +726,7 @@
         </div>
     </section>
 
-    <!-- ДРЕСС-КОД: 2 строки по 3 цвета, чёткие подписи -->
+    <!-- ДРЕСС-КОД: все цвета на одной строке, без текстовых подписей, обновлённые оттенки -->
     <section class="reveal" style="background: #fcfcfc;">
         <h2 class="serif-title">Дресс-код</h2>
         <p class="serif-subtitle">dress-code</p>
@@ -745,33 +737,26 @@
             Весь наш день пройдёт под открытым небом — среди воздуха, света и природы. К вечеру становится заметно прохладнее, и лёгкий тёплый слой в образе может оказаться очень кстати.
         </p>
         
-        <div class="palette-wrapper">
-            <div class="palette-row">
+        <!-- Все цвета на одной строке (горизонтальный скролл при необходимости), подписи убраны -->
+        <div class="palette-scroll">
+            <div class="palette-row-single">
                 <div class="color-dot">
                     <div class="dot-circle" style="background: #F2C4D1;"></div>
-                    <span class="dot-label">розовый<br>светлый</span>
                 </div>
                 <div class="color-dot">
                     <div class="dot-circle" style="background: #B2405A;"></div>
-                    <span class="dot-label">розовый<br>тёмный</span>
                 </div>
                 <div class="color-dot">
-                    <div class="dot-circle" style="background: #CBE5B4;"></div>
-                    <span class="dot-label">фисташковый</span>
+                    <div class="dot-circle" style="background: #969662;"></div>
                 </div>
-            </div>
-            <div class="palette-row">
                 <div class="color-dot">
                     <div class="dot-circle" style="background: #2C6A47;"></div>
-                    <span class="dot-label">изумрудный</span>
                 </div>
                 <div class="color-dot">
                     <div class="dot-circle" style="background: #F3EDE2;"></div>
-                    <span class="dot-label">бежевый<br>холодный</span>
                 </div>
                 <div class="color-dot">
-                    <div class="dot-circle" style="background: #DFCFAC;"></div>
-                    <span class="dot-label">бежевый<br>тёплый</span>
+                    <div class="dot-circle" style="background: #bfb196;"></div>
                 </div>
             </div>
         </div>
