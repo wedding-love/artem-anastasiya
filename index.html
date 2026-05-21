@@ -103,7 +103,7 @@
             color: #555;
         }
 
-        /* ===== ОБЛОЖКА (уплотнённая, всё на один экран) ===== */
+        /* ===== ОБЛОЖКА ===== */
         .hero-names {
             font-family: 'Cormorant Garamond', serif;
             color: #2d4c3e; 
@@ -154,7 +154,7 @@
             margin: 18px 0 0;
         }
 
-        /* История без рамки — каждое предложение на отдельной строке */
+        /* История */
         .story-text-main {
             max-width: 340px;
             margin: 12px auto 6px;
@@ -168,7 +168,6 @@
             font-weight: 300;
             display: block;
         }
-        /* Каждое предложение — отдельный блок */
         .story-quote-original {
             font-family: 'Cormorant Garamond', serif;
             font-size: 19px;
@@ -179,7 +178,7 @@
             display: block;
         }
 
-        /* ===== ПРИГЛАШЕНИЕ ===== */
+        /* ПРИГЛАШЕНИЕ */
         .invitation-text {
             font-family: 'Cormorant Garamond', serif;
             font-weight: 300;
@@ -199,7 +198,7 @@
             letter-spacing: 2px;
         }
 
-        /* ===== КАЛЕНДАРЬ ===== */
+        /* КАЛЕНДАРЬ */
         .calendar-grid {
             display: grid; 
             grid-template-columns: repeat(7, 1fr); 
@@ -243,7 +242,7 @@
             border: 1px solid rgba(45,76,62,0.3);
         }
 
-        /* ===== ЛОКАЦИЯ ===== */
+        /* ЛОКАЦИЯ */
         .location-photo { 
             width: 100%; 
             height: 240px; 
@@ -292,7 +291,7 @@
         .map-btn:hover { background: #1e3529; }
         .map-btn i { margin-right: 10px; }
 
-        /* ===== ТАЙМИНГ ===== */
+        /* ТАЙМИНГ */
         .timeline { 
             position: relative; 
             padding: 22px 0; 
@@ -349,14 +348,14 @@
             margin-top: 5px;
         }
 
-        /* ===== ТАЙМЕР (исправлен) ===== */
+        /* ТАЙМЕР */
         .timer-wrapper {
             display: flex;
-            justify-content: center;
+            flex-direction: column;
+            align-items: center;
             width: 100%;
-            margin-top: 24px;
+            margin-top: 16px;
         }
-
         .timer-container { 
             display: flex; 
             justify-content: center; 
@@ -364,6 +363,7 @@
             gap: 2.5vw;
             flex-wrap: nowrap;
             width: 100%;
+            margin-top: 16px;
         }
         
         .timer-item { 
@@ -404,7 +404,7 @@
             padding-bottom: 14px;
         }
 
-        /* ===== ДРЕСС-КОД ===== */
+        /* ДРЕСС-КОД */
         .dresscode-intro {
             font-family: 'Cormorant Garamond', serif;
             font-weight: 300;
@@ -418,6 +418,38 @@
             margin-right: auto;
         }
         
+        .color-palette {
+            display: flex;
+            justify-content: center;
+            gap: 24px;
+            margin: 20px auto 32px auto;
+            flex-wrap: wrap;
+        }
+        .color-dot {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+            font-family: 'Inter', sans-serif;
+            font-size: 13px;
+            font-weight: 300;
+            color: #2d4c3e;
+            letter-spacing: 1px;
+        }
+        .dot-circle {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            transition: transform 0.2s ease;
+        }
+        .dot-circle:hover { transform: scale(1.05); }
+        .dot-label {
+            text-transform: uppercase;
+            font-size: 12px;
+            opacity: 0.75;
+        }
+
         .tabs-nav { display: flex; justify-content: center; gap: 12px; margin-bottom: 20px; }
         .tab-btn {
             background: none;
@@ -444,7 +476,7 @@
         .slide-arrow:hover { background: #2d4c3e; color: #fff; }
         @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
 
-        /* ===== АНКЕТА ===== */
+        /* АНКЕТА */
         .form-container { 
             background: #fafaf8; 
             padding: 32px 24px; 
@@ -512,7 +544,7 @@
         .success-text { font-family: 'Cormorant Garamond', serif; font-size: 24px; color: #2d4c3e; margin-bottom: 12px; font-weight: 400; }
         .success-subtext { font-family: 'Inter', sans-serif; font-weight: 300; font-size: 15px; color: #666; line-height: 1.7; }
 
-        /* ===== КОНТАКТЫ ===== */
+        /* КОНТАКТЫ */
         .contact-link { 
             color: #2d4c3e; 
             text-decoration: none; 
@@ -550,7 +582,7 @@
 </head>
 <body>
 
-    <!-- СЕКЦИЯ 1: ОБЛОЖКА + ИСТОРИЯ (каждое предложение на отдельной строке) -->
+    <!-- СЕКЦИЯ 1: ОБЛОЖКА + ИСТОРИЯ -->
     <section class="reveal">
         <h1 class="hero-names"><span>Артём</span> <span>и</span> <span>Анастасия</span></h1>
         <p class="hero-subtitle">история одной любви</p>
@@ -560,7 +592,6 @@
             <div class="photo-child" style="background-image: url('девочка.jpg');"></div>
         </div>
         
-        <!-- История: каждое предложение — отдельная строка -->
         <div class="story-text-main">
             <span class="story-line-original">Мы жили в разных городах, в разных ритмах, среди разных улиц.</span>
             <span class="story-line-original">Нас разделяли километры, часы в пути и ожидание встреч.</span>
@@ -572,19 +603,18 @@
         <p class="hero-date">21.08.2026</p>
     </section>
 
-    <!-- СЕКЦИЯ 2: ПРИГЛАШЕНИЕ -->
+    <!-- СЕКЦИЯ 2: ПРИГЛАШЕНИЕ (текст сокращён) -->
     <section class="section-primary reveal">
         <p class="invitation-text">
             Дорогие, любимые, самые родные!
             <br><br>
             Мы стоим на пороге самого важного дня в нашей жизни — дня, когда две души станут одной семьёй. И нам невероятно важно, чтобы в этот момент вы были рядом.
             <br><br>
-            Ваше присутствие — это самый тёплый подарок, который мы можем себе представить. Приходите, чтобы разделить с нами эту радость, смеяться, плакать от счастья и танцевать до утра.
             <span class="invitation-highlight">Мы ждём именно вас</span>
         </p>
     </section>
 
-    <!-- СЕКЦИЯ 3: КАЛЕНДАРЬ (АВГУСТ 2026, 21 — ПЯТНИЦА) -->
+    <!-- СЕКЦИЯ 3: КАЛЕНДАРЬ -->
     <section class="reveal">
         <h2 class="serif-title">Когда?</h2>
         <p class="serif-subtitle">август, 2026</p>
@@ -663,11 +693,11 @@
         </div>
     </section>
 
-    <!-- ТАЙМЕР (исправлен) -->
+    <!-- ТАЙМЕР (возвращён текст: мы считаем каждый день, и с каждым днём наши сердца бьются всё чаще в предвкушении встречи) -->
     <section class="section-primary reveal">
         <h2 class="serif-title-white">До торжества осталось</h2>
-        <p class="warm-text" style="color: rgba(255,255,255,0.8); font-size: 18px; max-width: 300px; margin: 0 auto 14px;">
-            Мы считаем каждый день, и с каждым днём сердце бьётся всё чаще в предвкушении нашей встречи
+        <p class="warm-text" style="color: rgba(255,255,255,0.85); font-size: 19px; max-width: 320px; margin: 8px auto 10px; font-style: italic;">
+            мы считаем каждый день, и с каждым днём наши сердца бьются всё чаще в предвкушении встречи
         </p>
         <div class="timer-wrapper">
             <div class="timer-container">
@@ -682,7 +712,7 @@
         </div>
     </section>
 
-    <!-- ДРЕСС-КОД -->
+    <!-- ДРЕСС-КОД: палитра кружочками, без текстового перечисления -->
     <section class="reveal" style="background: #fcfcfc;">
         <h2 class="serif-title">Дресс-код</h2>
         <p class="serif-subtitle">dress-code</p>
@@ -690,10 +720,24 @@
             Дорогие гости! Для нас важно, чтобы торжество было выдержано в единой стилистике, поэтому просим вас поддержать палитру мероприятия при выборе нарядов.
         </p>
         <p class="dresscode-intro" style="font-size: 17px; margin-top: -12px;">
-            Палитра: розовый (от нежно-розового до тёмного), зелёный (от фисташкового до изумрудного), бежевый (холодный и тёплый).<br>
             Весь наш день пройдёт под открытым небом — среди воздуха, света и природы. К вечеру становится заметно прохладнее, и лёгкий тёплый слой в образе может оказаться очень кстати.
         </p>
         
+        <div class="color-palette">
+            <div class="color-dot">
+                <div class="dot-circle" style="background: #f5c6d0;"></div>
+                <span class="dot-label">Розовый</span>
+            </div>
+            <div class="color-dot">
+                <div class="dot-circle" style="background: #cfebcf;"></div>
+                <span class="dot-label">Зелёный</span>
+            </div>
+            <div class="color-dot">
+                <div class="dot-circle" style="background: #e8dccc;"></div>
+                <span class="dot-label">Бежевый</span>
+            </div>
+        </div>
+
         <div class="tabs-nav">
             <button class="tab-btn active" onclick="openTab(event, 'for-her')">ДЛЯ НЕЁ</button>
             <button class="tab-btn" onclick="openTab(event, 'for-him')">ДЛЯ НЕГО</button>
@@ -727,7 +771,7 @@
         </div>
     </section>
 
-    <!-- ПОЖЕЛАНИЯ (без упоминания конвертов) -->
+    <!-- ПОЖЕЛАНИЯ -->
     <section class="section-primary reveal">
         <h2 class="serif-title-white">Пожелания</h2>
         <p class="serif-subtitle" style="color: rgba(255,255,255,0.7);">wishes</p>
@@ -833,7 +877,6 @@
             track.style.transform = 'translateX(-' + (slides[gender] * slideWidth) + 'px)';
         }
 
-        // ИСПРАВЛЕННЫЙ ТАЙМЕР
         var daysEl = document.getElementById('days');
         var hoursEl = document.getElementById('hours');
         var minutesEl = document.getElementById('minutes');
